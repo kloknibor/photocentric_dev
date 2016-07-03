@@ -1,25 +1,33 @@
 		<div class="row">
 			<div class="col-sm-5 bootcards-list" id="list">
 				<div class="panel panel-default">
-						<div class="panel-heading">
+					<div class="panel-heading">
 							<i class="fa fa-2x fa-files-o pull-left"></i>
 							<h3 class="panel-title pull-left">Printable Files</h3>
 							<div class="row">
 								<div class="btn-group pull-right" >
-									<button class="btn btn-success" ng-disabled="printablesController.currentPrintable == null" ng-click="printablesController.printPrintable()" >
-										<i class="fa fa-print"></i>
-										<span>Print</span>
-									</button>
-									<button class="btn btn-danger" ng-disabled="printablesController.currentPrintable == null" ng-click="printablesController.deletePrintable()">
-										<i class="fa fa-trash-o"></i> 
-										<span>Remove</span>
-									</button>
 									<button class="btn btn-primary" ng-click="printablesController.showUpload()">
 										<i class="fa fa-upload"></i> 
 										<span>Upload</span>
 									</button>
 							    </div>
-						</div>
+							</div>
+							<div class="row">
+								<div class="btn-group pull-right" >
+									<button class="btn btn-success" ng-disabled="printablesController.currentPrintable == null" ng-click="printablesController.printPrintable()" >
+										<i class="fa fa-print"></i>
+											<span>Print</span>
+									</button>
+									<button class="btn btn-danger" ng-disabled="printablesController.currentPrintable == null" ng-click="printablesController.deletePrintable()">
+											<i class="fa fa-trash-o"></i> 
+												<span>Remove</span>
+									</button>
+									<button class="btn btn-primary" ng-click="printablesController.showUpload()">
+										<i class="fa fa-upload"></i> 
+										<span>Preview</span>
+									</button>
+								</div>
+							</div>
 					</div>
 					<div class="list-group">
 						<a ng-class="{active:printable.name == printablesController.currentPrintable.name}" ng-repeat="printable in printablesController.printables"
@@ -49,3 +57,9 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="col-sm-9 bootcards-cards">
+				<div id="printJob3dModel">
+					<span ng-include="'3dModel.html'"></span>
+				</div>
+			</div>
