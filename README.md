@@ -65,18 +65,11 @@ Linux Installation Quickstart
 -------------------------------------------------------------------------------
 If you are experienced with Linux, you can quickly install Photonic3D with the following commands:
 
-Latest stable:
-```
-sudo wget https://github.com/area515/Creation-Workshop-Host/raw/master/host/bin/start.sh
-sudo chmod 777 start.sh
-sudo ./start.sh
-```
-
 Latest development:
 ```
-sudo wget https://github.com/WesGilster/Creation-Workshop-Host/raw/master/host/bin/start.sh
+sudo wget https://github.com/Kloknibor/photocentric_dev/raw/master/host/bin/start.sh
 sudo chmod 777 start.sh
-sudo ./start.sh WesGilster
+sudo ./start.sh 
 ```
 
 Photonic3D will be installed into `/opt/cwh` and an init script will be added to `/etc/init.d` to launch the server on boot.
@@ -84,7 +77,7 @@ Photonic3D will be installed into `/opt/cwh` and an init script will be added to
 Windows Installation Quickstart
 ------------------------------------------
 * Download the latest stable or development version: 
- * [Stable repo Github Releases](https://github.com/area515/Creation-Workshop-Host/releases) or [Development repo Github Releases](https://github.com/WesGilster/Creation-Workshop-Host/releases)  
+ [Development repo Github Releases](https://github.com/Kloknibor/photocentric_dev/releases)  
 * Unzip the zip file into the directory of your choice.
 * Double click on `start.bat`.
 
@@ -93,7 +86,7 @@ Client Tools
 There are also a number of tools designed to run on your client desktop that are bundled with the installation.
 
 * Download the latest stable or development version: 
- * [Stable repo Github Releases](https://github.com/area515/Creation-Workshop-Host/releases) or [Development repo Github Releases](https://github.com/WesGilster/Creation-Workshop-Host/releases)  
+ * [development repo Github Releases](https://github.com/Kloknibor/photocentric_dev/releases) 
 * Unzip the zip file into the directory of your choice.
 
 The *browseprinter* tool will help you find the Photonic3D server on your network, in case you have it installed a machine with a dynamic IP address and you don't know what what is.
