@@ -1,0 +1,476 @@
+2016-07-10 14:25:10,126 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 14:25:10,126 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 14:25:10,136 INFO o.a.r.s.Main [main] Photonic3D started
+2016-07-10 14:25:10,136 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 14:25:10,136 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 14:25:12,398 INFO o.a.r.d.UPNPAdvertiser [main] Relative UPNP root descriptor: /dev/152be35d-032f-6e40-0000-0000203b1340/desc
+2016-07-10 14:25:18,014 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\half kerkje.stl
+2016-07-10 14:25:18,017 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\hoek assen frame CCM.STL
+2016-07-10 14:25:18,018 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\inklemming lager kooi.STL
+2016-07-10 14:25:18,018 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\stuur onderdeel final.stl
+2016-07-10 14:25:18,019 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\tekst.stl
+2016-07-10 14:25:18,020 INFO o.a.r.s.PrintableService [qtp128359175-18] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\wig (1).STL
+2016-07-10 14:25:20,101 INFO o.a.r.s.HostProperties [qtp128359175-18] Created .machine for:C:\Users\Robin\Machines\Photocentric 10.machine
+2016-07-10 14:25:20,105 INFO o.a.r.s.HostProperties [qtp128359175-22] Created .slicing for:C:\Users\Robin\Profiles\Hard daylight red 0.1.slicing
+2016-07-10 14:25:20,118 INFO o.a.r.s.HostProperties [qtp128359175-22] Created .slicing for:C:\Users\Robin\Profiles\Photocentric 10.slicing
+2016-07-10 14:25:24,546 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\half kerkje.stl
+2016-07-10 14:25:24,546 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\hoek assen frame CCM.STL
+2016-07-10 14:25:24,547 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\inklemming lager kooi.STL
+2016-07-10 14:25:24,547 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\stuur onderdeel final.stl
+2016-07-10 14:25:24,547 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\tekst.stl
+2016-07-10 14:25:24,547 INFO o.a.r.s.PrintableService [qtp128359175-20] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\wig (1).STL
+2016-07-10 18:43:07,829 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 18:43:07,830 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 18:43:07,830 INFO o.a.r.s.Main [main] Photonic3D started
+2016-07-10 18:43:07,830 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 18:43:07,830 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 18:43:10,043 ERROR o.a.r.s.Main [main] Error starting Photonic3D http server
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_92]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_92]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_92]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[?:1.8.0_92]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[?:1.8.0_92]
+	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:326) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:244) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:384) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.area515.resinprinter.server.Main.main(Main.java:146) [main/:?]
+2016-07-10 18:43:10,342 ERROR o.a.r.d.UPNPAdvertiser [main] Couldn't advertise URI:
+2016-07-10 18:43:10,342 ERROR o.a.r.p.FeatureManager [main] Couldn't start feature
+java.lang.RuntimeException: Couldn't advertise URI:http://192.168.56.1:9091
+	at org.area515.resinprinter.discover.UPNPAdvertiser.start(UPNPAdvertiser.java:119) ~[main/:?]
+	at org.area515.resinprinter.plugin.FeatureManager.start(FeatureManager.java:26) [main/:?]
+	at org.area515.resinprinter.server.Main.main(Main.java:152) [main/:?]
+2016-07-10 18:43:49,972 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\half kerkje.stl
+2016-07-10 18:43:49,972 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\hoek assen frame CCM.STL
+2016-07-10 18:43:49,973 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\inklemming lager kooi.STL
+2016-07-10 18:43:49,973 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\stuur onderdeel final.stl
+2016-07-10 18:43:49,973 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\tekst.stl
+2016-07-10 18:43:49,974 INFO o.a.r.s.PrintableService [qtp128359175-61] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\wig (1).STL
+2016-07-10 18:43:51,842 INFO o.a.r.s.HostProperties [qtp128359175-62] Created .machine for:C:\Users\Robin\Machines\Photocentric 10.machine
+2016-07-10 18:43:51,867 INFO o.a.r.s.HostProperties [qtp128359175-59] Created .slicing for:C:\Users\Robin\Profiles\Hard daylight red 0.1.slicing
+2016-07-10 18:43:51,876 INFO o.a.r.s.HostProperties [qtp128359175-59] Created .slicing for:C:\Users\Robin\Profiles\Photocentric 10.slicing
+2016-07-10 18:43:53,248 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\half kerkje.stl
+2016-07-10 18:43:53,249 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\hoek assen frame CCM.STL
+2016-07-10 18:43:53,249 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\inklemming lager kooi.STL
+2016-07-10 18:43:53,250 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\stuur onderdeel final.stl
+2016-07-10 18:43:53,250 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\tekst.stl
+2016-07-10 18:43:53,250 INFO o.a.r.s.PrintableService [qtp128359175-313] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\wig (1).STL
+2016-07-10 19:22:30,610 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 19:22:30,611 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 19:22:30,611 INFO o.a.r.s.Main [main] Photonic3D started
+2016-07-10 19:22:30,612 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 19:22:30,612 INFO o.a.r.s.Main [main] =================================================================
+2016-07-10 19:22:32,306 ERROR o.a.r.s.Main [main] Error starting Photonic3D http server
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method) ~[?:1.8.0_92]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[?:1.8.0_92]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[?:1.8.0_92]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[?:1.8.0_92]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[?:1.8.0_92]
+	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:326) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:244) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.server.Server.doStart(Server.java:384) ~[jetty-server-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:68) ~[jetty-util-9.3.7.v20160115.jar:9.3.7.v20160115]
+	at org.area515.resinprinter.server.Main.main(Main.java:146) [main/:?]
+2016-07-10 19:22:32,604 ERROR o.a.r.d.UPNPAdvertiser [main] Couldn't advertise URI:
+2016-07-10 19:22:32,605 ERROR o.a.r.p.FeatureManager [main] Couldn't start feature
+java.lang.RuntimeException: Couldn't advertise URI:http://192.168.56.1:9091
+	at org.area515.resinprinter.discover.UPNPAdvertiser.start(UPNPAdvertiser.java:119) ~[main/:?]
+	at org.area515.resinprinter.plugin.FeatureManager.start(FeatureManager.java:26) [main/:?]
+	at org.area515.resinprinter.server.Main.main(Main.java:152) [main/:?]
+2016-07-10 19:23:02,255 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\half kerkje.stl
+2016-07-10 19:23:02,255 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\hoek assen frame CCM.STL
+2016-07-10 19:23:02,256 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\inklemming lager kooi.STL
+2016-07-10 19:23:02,256 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\stuur onderdeel final.stl
+2016-07-10 19:23:02,256 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\tekst.stl
+2016-07-10 19:23:02,256 INFO o.a.r.s.PrintableService [qtp128359175-314] Loaded printable file: C:\Users\Robin\AppData\Local\Temp\uploaddir\wig (1).STL
+2016-07-10 19:23:04,575 INFO o.a.r.s.HostProperties [qtp128359175-62] Created .machine for:C:\Users\Robin\Machines\Photocentric 10.machine
+2016-07-10 19:23:04,591 INFO o.a.r.s.HostProperties [qtp128359175-312] Created .slicing for:C:\Users\Robin\Profiles\Hard daylight red 0.1.slicing
+2016-07-10 19:23:04,600 INFO o.a.r.s.HostProperties [qtp128359175-312] Created .slicing for:C:\Users\Robin\Profiles\Photocentric 10.slicing
+2016-07-10 19:23:27,585 INFO o.a.u.IOUtilitiesTest [Test worker] 
+2016-07-10 19:23:30,910 INFO o.a.r.i.v.TestVisualPrintMaterialDetector [Test worker] Determining liquid level in: ToughSituation.png.
+2016-07-10 19:23:31,579 INFO o.a.r.i.v.TestVisualPrintMaterialDetector [Test worker] Time taken to perform visual inspection of remaining print resin: 668ms
+2016-07-10 19:23:31,581 INFO o.a.r.i.v.TestVisualPrintMaterialDetector [Test worker] Remaining print resin: 47.09%
+2016-07-10 19:23:32,192 INFO o.a.r.i.v.CircleTest [Test worker] [[X:25 Y:54 R:15 votes:321], [X:22 Y:58 R:15 votes:339]]
+2016-07-10 19:23:32,321 INFO o.a.r.i.v.CircleTest [Test worker] Complete
+2016-07-10 19:23:32,326 INFO o.a.r.i.v.LineTest [Test worker] [x1:6 y1:0 x2:-3 y2:20 votes:9, x1:9 y1:0 x2:-14 y2:20 votes:9, x1:9 y1:0 x2:-14 y2:20 votes:9, x1:9 y1:0 x2:-15 y2:20 votes:9, x1:9 y1:0 x2:-15 y2:20 votes:9, x1:10 y1:0 x2:-18 y2:20 votes:10, x1:10 y1:0 x2:-19 y2:20 votes:10, x1:10 y1:0 x2:-19 y2:20 votes:10, x1:10 y1:0 x2:-20 y2:20 votes:10, x1:10 y1:0 x2:-20 y2:20 votes:9, x1:10 y1:0 x2:-21 y2:20 votes:9, x1:11 y1:0 x2:-22 y2:20 votes:9, x1:11 y1:0 x2:-22 y2:20 votes:9, x1:11 y1:0 x2:-25 y2:20 votes:9, x1:11 y1:0 x2:-26 y2:20 votes:9, x1:12 y1:0 x2:-27 y2:20 votes:9, x1:12 y1:0 x2:-28 y2:20 votes:9, x1:49 y1:0 x2:-344 y2:20 votes:9, x1:9 y1:0 x2:30 y2:20 votes:10, x1:9 y1:0 x2:30 y2:20 votes:10, x1:9 y1:0 x2:29 y2:20 votes:10, x1:10 y1:0 x2:29 y2:20 votes:10, x1:10 y1:0 x2:29 y2:20 votes:10, x1:10 y1:0 x2:28 y2:20 votes:9, x1:14 y1:0 x2:20 y2:20 votes:9, x1:46 y1:0 x2:-76 y2:20 votes:9, x1:59 y1:0 x2:-105 y2:20 votes:9, x1:63 y1:0 x2:-116 y2:20 votes:10, x1:69 y1:0 x2:-128 y2:20 votes:10, x1:75 y1:0 x2:-143 y2:20 votes:10, x1:83 y1:0 x2:-163 y2:20 votes:10, x1:94 y1:0 x2:-187 y2:20 votes:9, x1:108 y1:0 x2:-220 y2:20 votes:9, x1:127 y1:0 x2:-265 y2:20 votes:9, x1:-65 y1:0 x2:186 y2:20 votes:9, x1:-56 y1:0 x2:166 y2:20 votes:9, x1:-50 y1:0 x2:150 y2:20 votes:9, x1:-44 y1:0 x2:137 y2:20 votes:9, x1:-39 y1:0 x2:127 y2:20 votes:9, x1:-35 y1:0 x2:118 y2:20 votes:9, x1:-32 y1:0 x2:110 y2:20 votes:9, x1:-24 y1:0 x2:92 y2:20 votes:9, x1:52 y1:0 x2:-70 y2:20 votes:9, x1:55 y1:0 x2:-75 y2:20 votes:9, x1:59 y1:0 x2:-81 y2:20 votes:9, x1:63 y1:0 x2:-89 y2:20 votes:9, x1:67 y1:0 x2:-97 y2:20 votes:9, x1:72 y1:0 x2:-107 y2:20 votes:10, x1:79 y1:0 x2:-118 y2:20 votes:11, x1:86 y1:0 x2:-132 y2:20 votes:12, x1:96 y1:0 x2:-150 y2:20 votes:12, x1:108 y1:0 x2:-173 y2:20 votes:13, x1:124 y1:0 x2:-203 y2:20 votes:13, x1:147 y1:0 x2:-245 y2:20 votes:13, x1:181 y1:0 x2:-308 y2:20 votes:14, x1:237 y1:0 x2:-412 y2:20 votes:15, x1:346 y1:0 x2:-615 y2:20 votes:17, x1:658 y1:0 x2:-1194 y2:20 votes:20, x1:8800 y1:0 x2:-16314 y2:20 votes:20, x1:-750 y1:0 x2:1422 y2:20 votes:20, x1:-354 y1:0 x2:686 y2:20 votes:18, x1:-229 y1:0 x2:455 y2:20 votes:16, x1:-168 y1:0 x2:341 y2:20 votes:15, x1:-132 y1:0 x2:274 y2:20 votes:14, x1:-108 y1:0 x2:229 y2:20 votes:14, x1:-90 y1:0 x2:197 y2:20 votes:14, x1:-78 y1:0 x2:173 y2:20 votes:13, x1:-68 y1:0 x2:155 y2:20 votes:12, x1:-60 y1:0 x2:140 y2:20 votes:11, x1:-53 y1:0 x2:128 y2:20 votes:10, x1:-48 y1:0 x2:118 y2:20 votes:11, x1:-43 y1:0 x2:110 y2:20 votes:10, x1:-39 y1:0 x2:102 y2:20 votes:9, x1:-36 y1:0 x2:96 y2:20 votes:9, x1:-33 y1:0 x2:91 y2:20 votes:9, x1:18 y1:0 x2:13 y2:20 votes:9, x1:18 y1:0 x2:13 y2:20 votes:9, x1:20 y1:0 x2:12 y2:20 votes:9, x1:20 y1:0 x2:12 y2:20 votes:9, x1:20 y1:0 x2:12 y2:20 votes:9, x1:21 y1:0 x2:12 y2:20 votes:9, x1:21 y1:0 x2:12 y2:20 votes:9, x1:21 y1:0 x2:11 y2:20 votes:9, x1:21 y1:0 x2:11 y2:20 votes:10, x1:22 y1:0 x2:11 y2:20 votes:9, x1:22 y1:0 x2:11 y2:20 votes:9, x1:22 y1:0 x2:11 y2:20 votes:9, x1:22 y1:0 x2:11 y2:20 votes:9, x1:22 y1:0 x2:11 y2:20 votes:9, x1:25 y1:0 x2:9 y2:20 votes:9, x1:32 y1:0 x2:6 y2:20 votes:9, x1:68 y1:0 x2:-3 y2:20 votes:9, x1:70 y1:0 x2:-4 y2:20 votes:9, x1:-11 y1:0 x2:10 y2:20 votes:9, x1:-11 y1:0 x2:10 y2:20 votes:9, x1:-10 y1:0 x2:10 y2:20 votes:9, x1:-10 y1:0 x2:10 y2:20 votes:9, x1:-10 y1:0 x2:10 y2:20 votes:9, x1:-9 y1:0 x2:10 y2:20 votes:9, x1:-9 y1:0 x2:9 y2:20 votes:9, x1:-9 y1:0 x2:9 y2:20 votes:9, x1:-8 y1:0 x2:9 y2:20 votes:9, x1:-4 y1:0 x2:8 y2:20 votes:9, x1:-2 y1:0 x2:6 y2:20 votes:9, x1:-2 y1:0 x2:6 y2:20 votes:9, x1:-2 y1:0 x2:6 y2:20 votes:9, x1:-1 y1:0 x2:6 y2:20 votes:9, x1:-1 y1:0 x2:6 y2:20 votes:9, x1:-1 y1:0 x2:6 y2:20 votes:9, x1:0 y1:0 x2:5 y2:20 votes:9, x1:0 y1:0 x2:5 y2:20 votes:9]
+2016-07-10 19:23:32,337 INFO o.a.r.i.v.LineTest [Test worker] Complete
+2016-07-10 19:23:32,391 INFO o.a.r.i.v.LineTest [Test worker] [x1:-57 y1:0 x2:335 y2:100 votes:52, x1:-52 y1:0 x2:324 y2:100 votes:46, x1:-48 y1:0 x2:300 y2:100 votes:46, x1:-44 y1:0 x2:291 y2:100 votes:44, x1:-73 y1:0 x2:319 y2:100 votes:42, x1:-68 y1:0 x2:308 y2:100 votes:47, x1:-63 y1:0 x2:298 y2:100 votes:49, x1:-59 y1:0 x2:289 y2:100 votes:46, x1:-193 y1:0 x2:183 y2:100 votes:42]
+2016-07-10 19:23:32,417 INFO o.a.r.i.v.LineTest [Test worker] Complete
+2016-07-10 19:23:34,586 INFO o.a.r.j.AbstractPrintFileProcessor [Test worker] { "layer": 0, "exposureTime": 0, "liftDistance": 0.0, "liftSpeed": 0.0 , "layerAreaMM2": null }
+2016-07-10 19:23:34,681 INFO o.a.r.j.AbstractPrintFileProcessor [Test worker] { "layer": 0, "exposureTime": 0, "liftDistance": 0.0, "liftSpeed": 0.0 , "layerAreaMM2": null }
+2016-07-10 19:23:34,740 INFO o.a.r.j.AbstractPrintFileProcessor [Test worker] { "layer": 0, "exposureTime": 0, "liftDistance": 0.0, "liftSpeed": 0.0 , "layerAreaMM2": 5.0 }
+2016-07-10 19:23:34,785 ERROR o.a.u.TemplateEngine [Test worker] buildAreaMM was used in a template:G99 ${1 + buildAreaMM * 2} ;dependent on buildArea, but isn't supported by this print processor.
+2016-07-10 19:23:34,789 INFO o.a.r.j.AbstractPrintFileProcessor [Test worker] { "layer": 0, "exposureTime": 0, "liftDistance": 0.0, "liftSpeed": 0.0 , "layerAreaMM2": null }
+2016-07-10 19:23:35,416 INFO o.a.r.p.HexCodeBasedProjectorTesting [Test worker] Projector json parse and javascript eval test.
+2016-07-10 19:23:35,428 INFO o.a.r.p.DetectFirmwareMock [Test worker] Firmware detection test.
+2016-07-10 19:23:35,434 DEBUG o.a.r.s.SerialManager [Test worker] Attempting 3dprinter firmware detection on:Mock for ComPortSettings, hashCode: 1681210334
+2016-07-10 19:23:39,635 DEBUG o.a.r.s.SerialManager [Test worker] Chitchat was:Grbl 0.9i ['$' for help]
+ok
+ from:Mock for ComPortSettings, hashCode: 1681210334
+2016-07-10 19:23:43,836 DEBUG o.a.r.s.SerialManager [Test worker] 3dprinter firmware found on:Mock for ComPortSettings, hashCode: 1681210334
+2016-07-10 19:23:43,858 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,859 INFO o.a.r.g.GCodeControl [Test worker] lineRead: null
+2016-07-10 19:23:43,860 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,860 INFO o.a.r.g.GCodeControl [Test worker] lineRead: k
+
+2016-07-10 19:23:43,863 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,863 INFO o.a.r.g.GCodeControl [Test worker] lineRead: K
+
+2016-07-10 19:23:43,864 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,865 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Ok
+
+2016-07-10 19:23:43,865 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,866 INFO o.a.r.g.GCodeControl [Test worker] lineRead: ok
+
+2016-07-10 19:23:43,867 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,867 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Rror: This is the error message.
+
+2016-07-10 19:23:43,868 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,868 INFO o.a.r.g.GCodeControl [Test worker] lineRead: rRor: This is the error message.
+
+2016-07-10 19:23:43,869 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,870 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Error: This is the error message.
+
+2016-07-10 19:23:43,871 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,871 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Error: This is the error message.
+
+2016-07-10 19:23:43,872 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,872 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Larm: This is the alarm message.
+
+2016-07-10 19:23:43,873 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,874 INFO o.a.r.g.GCodeControl [Test worker] lineRead: lArm: This is the alarm message.
+
+2016-07-10 19:23:43,875 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,875 INFO o.a.r.g.GCodeControl [Test worker] lineRead: Alarm: This is the alarm message.
+
+2016-07-10 19:23:43,876 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,876 INFO o.a.r.g.GCodeControl [Test worker] lineRead: alaRm: This is the alarm message.
+
+2016-07-10 19:23:43,877 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,877 INFO o.a.r.g.GCodeControl [Test worker] lineRead: feedback message>
+
+2016-07-10 19:23:43,878 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,878 INFO o.a.r.g.GCodeControl [Test worker] lineRead: feedback message>
+
+2016-07-10 19:23:43,880 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,880 INFO o.a.r.g.GCodeControl [Test worker] lineRead: <feedback message>
+
+2016-07-10 19:23:43,881 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,881 INFO o.a.r.g.GCodeControl [Test worker] lineRead: <feedback message>
+
+2016-07-10 19:23:43,882 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,883 INFO o.a.r.g.GCodeControl [Test worker] lineRead: status report>
+
+2016-07-10 19:23:43,883 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,884 INFO o.a.r.g.GCodeControl [Test worker] lineRead: status report>
+
+2016-07-10 19:23:43,884 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,885 INFO o.a.r.g.GCodeControl [Test worker] lineRead: <status report>
+
+2016-07-10 19:23:43,886 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,886 INFO o.a.r.g.GCodeControl [Test worker] lineRead: <status report>
+
+2016-07-10 19:23:43,887 INFO o.a.r.g.GCodeControl [Test worker] Write 0: G21
+
+2016-07-10 19:23:43,887 INFO o.a.r.g.GCodeControl [Test worker] lineRead: X:0.000 Y:3.000 Z:196.000 E:0.000 Count X: 0.000 Y:2.997 Z:196.000
+
+2016-07-10 19:23:43,887 INFO o.a.r.g.GCodeControl [Test worker] lineRead: ok
+
+2016-07-10 19:23:44,891 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:bottle.stl
+2016-07-10 19:23:44,893 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:44,991 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:98
+2016-07-10 19:23:44,994 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:44,994 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,011 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:17
+2016-07-10 19:23:45,017 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:6
+2016-07-10 19:23:45,024 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:7
+2016-07-10 19:23:45,026 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:2
+2016-07-10 19:23:45,027 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,028 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,031 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:3
+2016-07-10 19:23:45,034 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:3
+2016-07-10 19:23:45,036 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:2
+2016-07-10 19:23:45,037 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,040 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:bottle.stl
+2016-07-10 19:23:45,040 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,068 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:28
+2016-07-10 19:23:45,069 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:CornerBracket_2.stl
+2016-07-10 19:23:45,070 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,071 WARN o.a.r.s.StlFile [Test worker] Falling back on using 'solid' identifier to determine ASCII/Binary stl file type
+2016-07-10 19:23:45,077 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:7
+2016-07-10 19:23:45,078 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,078 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,085 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:7
+2016-07-10 19:23:45,089 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:4
+2016-07-10 19:23:45,090 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,091 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,091 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,093 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:2
+2016-07-10 19:23:45,094 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,095 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,096 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,097 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,101 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:4
+2016-07-10 19:23:45,103 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:2
+2016-07-10 19:23:45,104 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,104 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,105 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,106 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,106 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,107 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,107 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,108 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,111 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,112 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,113 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,113 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,114 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,115 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,116 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,116 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,117 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:CornerBracket_2.stl
+2016-07-10 19:23:45,118 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,118 WARN o.a.r.s.StlFile [Test worker] Falling back on using 'solid' identifier to determine ASCII/Binary stl file type
+2016-07-10 19:23:45,121 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:3
+2016-07-10 19:23:45,122 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:CornerBracket_2.stl
+2016-07-10 19:23:45,122 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,123 WARN o.a.r.s.StlFile [Test worker] Falling back on using 'solid' identifier to determine ASCII/Binary stl file type
+2016-07-10 19:23:45,125 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:3
+2016-07-10 19:23:45,126 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,126 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,129 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,130 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:0
+2016-07-10 19:23:45,130 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,130 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,130 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,131 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,132 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,132 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:0
+2016-07-10 19:23:45,133 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,133 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,135 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,135 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,141 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:6
+2016-07-10 19:23:45,143 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:2
+2016-07-10 19:23:45,143 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,143 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,144 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,145 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,146 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,147 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,147 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,148 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,149 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,149 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,155 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:6
+2016-07-10 19:23:45,157 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:2
+2016-07-10 19:23:45,157 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,158 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:1
+2016-07-10 19:23:45,158 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,159 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,160 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,161 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,161 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,162 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,163 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,164 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,167 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,168 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,168 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,168 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,169 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,169 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,170 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,171 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,171 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,172 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,173 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,173 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,175 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,176 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,176 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,176 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,176 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,177 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,177 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,178 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,179 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,179 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,180 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,181 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,184 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,185 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,185 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,186 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:1
+2016-07-10 19:23:45,186 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,187 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,187 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,189 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:2
+2016-07-10 19:23:45,189 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,190 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,191 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,192 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,195 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,195 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:0
+2016-07-10 19:23:45,196 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,196 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,197 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,197 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,199 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:2
+2016-07-10 19:23:45,199 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:0
+2016-07-10 19:23:45,200 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,200 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,201 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,201 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,204 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:3
+2016-07-10 19:23:45,205 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,206 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,206 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,206 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,207 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,207 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,208 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,209 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,209 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,210 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,210 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,212 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,213 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,213 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,213 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,213 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,214 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:1
+2016-07-10 19:23:45,214 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,215 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,215 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,216 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,216 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,216 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,218 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,219 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,219 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,219 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,220 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,220 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,221 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,221 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:0
+2016-07-10 19:23:45,222 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,222 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,223 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,223 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,225 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,226 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,226 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,226 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,227 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,227 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,227 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,228 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,229 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,229 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,230 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,230 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,232 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,233 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,233 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,233 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,234 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:1
+2016-07-10 19:23:45,234 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,234 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,240 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:5
+2016-07-10 19:23:45,240 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,241 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,241 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,241 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,243 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:2
+2016-07-10 19:23:45,243 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:0
+2016-07-10 19:23:45,243 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,244 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:1
+2016-07-10 19:23:45,244 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,244 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,245 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,245 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:0
+2016-07-10 19:23:45,246 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,246 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,247 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,247 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,248 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:1
+2016-07-10 19:23:45,248 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:0
+2016-07-10 19:23:45,249 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,249 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,249 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,249 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,250 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,251 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,251 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,252 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,252 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,253 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,253 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:1
+2016-07-10 19:23:45,254 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:1
+2016-07-10 19:23:45,254 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:0
+2016-07-10 19:23:45,254 INFO o.a.r.s.ZSlicer [Test worker] Stl error capturing:0
+2016-07-10 19:23:45,254 INFO o.a.r.s.ZSlicer [Test worker] Broken loop mending:0
+2016-07-10 19:23:45,254 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,255 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:1
+2016-07-10 19:23:45,255 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:0
+2016-07-10 19:23:45,256 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,256 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,256 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,257 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,258 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:1
+2016-07-10 19:23:45,258 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:0
+2016-07-10 19:23:45,259 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:1
+2016-07-10 19:23:45,259 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:0
+2016-07-10 19:23:45,259 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:0
+2016-07-10 19:23:45,260 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:1
+2016-07-10 19:23:45,260 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:0
+2016-07-10 19:23:45,261 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:0
+2016-07-10 19:23:45,261 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:CornerBracket_2.stl
+2016-07-10 19:23:45,262 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,262 WARN o.a.r.s.StlFile [Test worker] Falling back on using 'solid' identifier to determine ASCII/Binary stl file type
+2016-07-10 19:23:45,264 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:2
+2016-07-10 19:23:45,265 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:lager houder.STL
+2016-07-10 19:23:45,266 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,274 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:8
+2016-07-10 19:23:45,275 INFO o.a.r.s.ZSlicer [Test worker] ===================
+2016-07-10 19:23:45,275 INFO o.a.r.s.ZSlicer [Test worker] ZSlice started
+2016-07-10 19:23:45,292 INFO o.a.r.s.ZSlicer [Test worker] IntersectionTime:17
+2016-07-10 19:23:45,295 INFO o.a.r.s.ZSlicer [Test worker] Primary linkage search:3
+2016-07-10 19:23:45,297 INFO o.a.r.s.ZSlicer [Test worker] Secondary linkage search:2
+2016-07-10 19:23:45,374 INFO o.a.r.s.ZSlicer [Test worker] Break scanline up into pieces:77
+2016-07-10 19:23:45,388 INFO o.a.r.s.ZSlicer [Test worker] Submit scanline work:13
+2016-07-10 19:23:45,500 INFO o.a.r.s.ZSlicer [Test worker] Wait for scanline work:113
+2016-07-10 19:23:45,501 INFO o.a.r.s.ZSlicer [Test worker] Compile polygons:1
+2016-07-10 19:23:45,502 INFO o.a.r.s.ZSlicer [Test worker] ZSlice complete:1
+2016-07-10 19:23:45,582 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:lager houder.STL
+2016-07-10 19:23:45,582 INFO o.a.r.s.ZSlicer [Test worker] Load file start
+2016-07-10 19:23:45,585 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:3
