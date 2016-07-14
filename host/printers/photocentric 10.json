@@ -39,10 +39,10 @@
          }
       },
       "slicingProfile":{  
-         "gCodeHeader":"G91;/nM17;",
+         "gCodeHeader":"G91;\nM17;",
          "gCodeFooter":"M18",
          "gCodePreslice":null,
-         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};/nG1 Z-${(ZLiftDist - LayerThickness)} F180;",
+         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\nG1 Z-${(ZLiftDist - LayerThickness)} F180;",
          "gCodeShutter":null,
          "zliftDistanceGCode":null,
          "zliftSpeedGCode":null,
@@ -66,8 +66,8 @@
          "LiftRetractRate":0.0,
          "FlipX":false,
          "FlipY":true,
-         "ZLiftDistanceCalculator":"var minLift = 4.5;/nvar value = 8.0;/nif ($CURSLICE > $NumFirstLayers) {/nvalue = minLift  +  0.0015*Math.pow($buildAreaMM,1);/n}/nvalue",
-         "ZLiftSpeedCalculator":"var value = 50.0;/nif ($CURSLICE > $NumFirstLayers) {/nvalue = 100.0 - 0.02 * Math.pow($buildAreaMM,1);/n}/nvalue",
+         "ZLiftDistanceCalculator":"var minLift = 4.5;\nvar value = 8.0;\nif ($CURSLICE > $NumFirstLayers) {\nvalue = minLift  +  0.0015*Math.pow($buildAreaMM,1);\n}\nvalue",
+         "ZLiftSpeedCalculator":"var value = 50.0;\nif ($CURSLICE > $NumFirstLayers) {\nvalue = 100.0 - 0.02 * Math.pow($buildAreaMM,1);\n}\nvalue",
          "ProjectorGradientCalculator":null,
          "ExposureTimeCalculator":"var value = $FirstLayerTime;\nif ($CURSLICE > $NumFirstLayers) {\n\tvalue = $LayerTime\n}\nvalue",
          "SelectedInk":"Default",
