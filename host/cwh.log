@@ -474,3 +474,44 @@ ok
 2016-07-10 19:23:45,582 INFO o.a.r.s.ZSlicingGeometry [Test worker] Reading file:lager houder.STL
 2016-07-10 19:23:45,582 INFO o.a.r.s.ZSlicer [Test worker] Load file start
 2016-07-10 19:23:45,585 INFO o.a.r.s.ZSlicer [Test worker] Load file stop:3
+2016-07-14 22:42:31,556 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:42:31,556 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:42:31,556 INFO o.a.r.s.Main [main] Photonic3D started
+2016-07-14 22:42:31,556 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:42:31,556 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:42:33,567 INFO o.a.r.d.UPNPAdvertiser [main] Relative UPNP root descriptor: /dev/152be35d-032f-6e40-ffff-ffffd3f5111b/desc
+2016-07-14 22:42:33,827 INFO o.a.r.s.HostProperties [main] Created printer configuration for:Photocentric 10
+2016-07-14 22:42:33,828 DEBUG o.a.r.p.PrinterManager [main] Attempting to start printer:Photocentric 10
+2016-07-14 22:42:33,988 INFO o.a.r.d.DisplayManager [main] Display:Simulated display assigned to Printer:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:33,988 DEBUG o.a.r.p.PrinterManager [main] Assigned display:Simulated display to:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:33,996 INFO o.a.r.s.SerialManager [main] Attempting to assign firmware using serialPort:Autodetect 3d printer firmware with settings:{Port:Autodetect 3d printer firmware speed:115200 databits:8 parity:None stopbits:One handshake:None} to printer:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:33,998 INFO o.a.r.s.SerialManager [main] Attempting to autodetect resources for:PrinterFirmware using serialPort:Autodetect 3d printer firmware with settings:{Port:Autodetect 3d printer firmware speed:115200 databits:8 parity:None stopbits:One handshake:None} to printer:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:33,998 ERROR o.a.r.p.PrinterManager [main] Error starting printer:Photocentric 10
+org.area515.resinprinter.display.InappropriateDeviceException: Failed to assign PrinterFirmware for Autodetect 3d printer firmware
+	at org.area515.resinprinter.serial.SerialManager.detectResourcesAndAssignPort(SerialManager.java:208) ~[main/:?]
+	at org.area515.resinprinter.serial.SerialManager.assignSerialPortToFirmware(SerialManager.java:270) ~[main/:?]
+	at org.area515.resinprinter.printer.PrinterManager.startPrinter(PrinterManager.java:142) [main/:?]
+	at org.area515.resinprinter.services.PrinterService.startPrinter(PrinterService.java:233) [main/:?]
+	at org.area515.resinprinter.server.Main.main(Main.java:183) [main/:?]
+2016-07-14 22:42:34,005 INFO o.a.r.s.SerialManager [main] Removing serial assignments for printer:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:34,005 INFO o.a.r.s.SerialManager [main] Clearing up projector model from printer:Photocentric 10(printerFirmwareSerialPort:null, projectorSerialPort:null Display:Simulated display)
+2016-07-14 22:42:34,012 ERROR o.a.r.s.PrinterService [main] Error starting printer:Photocentric 10
+org.area515.resinprinter.display.InappropriateDeviceException: Failed to assign PrinterFirmware for Autodetect 3d printer firmware
+	at org.area515.resinprinter.serial.SerialManager.detectResourcesAndAssignPort(SerialManager.java:208) ~[main/:?]
+	at org.area515.resinprinter.serial.SerialManager.assignSerialPortToFirmware(SerialManager.java:270) ~[main/:?]
+	at org.area515.resinprinter.printer.PrinterManager.startPrinter(PrinterManager.java:142) ~[main/:?]
+	at org.area515.resinprinter.services.PrinterService.startPrinter(PrinterService.java:233) [main/:?]
+	at org.area515.resinprinter.server.Main.main(Main.java:183) [main/:?]
+2016-07-14 22:42:41,626 INFO o.a.r.s.HostProperties [qtp1667148529-20] Created .machine for:C:\Users\Robin\Machines\mUVe 1.machine
+2016-07-14 22:42:41,632 INFO o.a.r.s.HostProperties [qtp1667148529-20] Created .machine for:C:\Users\Robin\Machines\Photocentric 10.machine
+2016-07-14 22:42:41,639 INFO o.a.r.s.HostProperties [qtp1667148529-16] Created .slicing for:C:\Users\Robin\Profiles\Hard daylight red 0.1.slicing
+2016-07-14 22:42:41,645 INFO o.a.r.s.HostProperties [qtp1667148529-20] Created .machine for:C:\Users\Robin\Machines\Titan1.machine
+2016-07-14 22:42:41,660 INFO o.a.r.s.HostProperties [qtp1667148529-16] Created .slicing for:C:\Users\Robin\Profiles\Maker Juice SF.slicing
+2016-07-14 22:42:41,688 INFO o.a.r.s.HostProperties [qtp1667148529-16] Created .slicing for:C:\Users\Robin\Profiles\Photocentric 10.slicing
+2016-07-14 22:42:41,707 INFO o.a.r.s.HostProperties [qtp1667148529-16] Created .slicing for:C:\Users\Robin\Profiles\Titan1-PSP-General.slicing
+2016-07-14 22:54:25,724 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:54:25,725 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:54:25,725 INFO o.a.r.s.Main [main] Photonic3D started
+2016-07-14 22:54:25,725 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:54:25,725 INFO o.a.r.s.Main [main] =================================================================
+2016-07-14 22:54:27,779 INFO o.a.r.d.UPNPAdvertiser [main] Relative UPNP root descriptor: /dev/152be35d-032f-6e40-ffff-ffffd3f5111b/desc
