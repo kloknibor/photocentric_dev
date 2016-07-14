@@ -42,7 +42,7 @@
          "gCodeHeader":"G91;\nM17;",
          "gCodeFooter":"M18",
          "gCodePreslice":null,
-         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\nG1 Z-${(ZLiftDist - LayerThickness)} F180;",
+         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\nG1 Z-${(ZLiftDist - LayerThickness)} F180;\n<delay> 1500;",
          "gCodeShutter":null,
          "zliftDistanceGCode":null,
          "zliftSpeedGCode":null,
