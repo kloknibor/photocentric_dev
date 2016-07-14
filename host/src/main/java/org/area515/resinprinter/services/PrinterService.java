@@ -19,6 +19,7 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.annotation.security.RolesAllowed;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 import javax.ws.rs.Consumes;
@@ -52,6 +53,7 @@ import org.area515.resinprinter.printer.SlicingProfile;
 import org.area515.resinprinter.printer.SlicingProfile.Font;
 import org.area515.resinprinter.printer.SlicingProfile.InkConfig;
 import org.area515.resinprinter.printer.SlicingProfile.TwoDimensionalSettings;
+import org.area515.resinprinter.security.PhotonicUser;
 import org.area515.resinprinter.serial.ConsoleCommPort;
 import org.area515.resinprinter.serial.SerialManager;
 import org.area515.resinprinter.server.HostProperties;
@@ -59,6 +61,7 @@ import org.area515.resinprinter.services.TestingResult.ChartData;
 import org.area515.util.TemplateEngine;
 
 @Api(value="printers")
+@RolesAllowed(PhotonicUser.FULL_RIGHTS)
 @Path("printers")
 public class PrinterService {
     private static final Logger logger = LogManager.getLogger();

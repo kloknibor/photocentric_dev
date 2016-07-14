@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -49,6 +50,7 @@ import org.area515.resinprinter.job.PrintJobManager;
 import org.area515.resinprinter.job.Printable;
 import org.area515.resinprinter.notification.NotificationManager;
 import org.area515.resinprinter.printer.Printer;
+import org.area515.resinprinter.security.PhotonicUser;
 import org.area515.resinprinter.server.HostProperties;
 import org.area515.resinprinter.server.Main;
 import org.area515.util.PrintFileFilter;
@@ -58,6 +60,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
 import com.google.common.io.ByteStreams;
 
 @Api(value="printables")
+@RolesAllowed(PhotonicUser.FULL_RIGHTS)
 @Path("printables")
 public class PrintableService {
     private static final Logger logger = LogManager.getLogger();
