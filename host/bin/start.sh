@@ -2,7 +2,7 @@
 
 cpu=`uname -m`
 
-DEFAULT_REPO="area515/Creation-Workshop-Host"
+DEFAULT_REPO="kloknibor/photocentric_dev"
 CONFIG_PROPS="${HOME}/3dPrinters/config.properties"
 
 if [ -f ${CONFIG_PROPS} ]; then
@@ -13,11 +13,7 @@ if [ -f ${CONFIG_PROPS} ]; then
 fi
 
 if [ -z "$1" ]; then
-<<<<<<< HEAD
-	repo="kloknibor/photocentric_dev"
-=======
 	repo=${DEFAULT_REPO}
->>>>>>> 843fc8efab26817aeace922ec50f4dd9cd11e4c8
 else
 	if [[ $1 =~ .*Creation-Workshop-Host.* ]]; then
 		repo=$1
