@@ -66,7 +66,7 @@
          "LiftRetractRate":0.0,
          "FlipX":false,
          "FlipY":true,
-         "ZLiftDistanceCalculator":"var value = 5.0;\nvalue",
+         "ZLiftDistanceCalculator":"var value = 10.0;\nvalue",
          "ZLiftSpeedCalculator":"var value = 50;\nvalue",
          "ProjectorGradientCalculator":null,
          "ExposureTimeCalculator":"var value = $FirstLayerTime;\nif ($CURSLICE > $NumFirstLayers) {\n\tvalue = $LayerTime\n}\nvalue",
@@ -78,8 +78,8 @@
                "PercentageOfPrintMaterialConsideredEmpty":10.0,
                "Name":"Default",
                "SliceHeight":0.1,
-               "LayerTime":26000,
-               "FirstLayerTime":140000,
+               "LayerTime":10000,
+               "FirstLayerTime":10000,
                "NumberofBottomLayers":4,
                "ResinPriceL":65.0
             }
