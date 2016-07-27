@@ -42,7 +42,7 @@
          "gCodeHeader":"G91;M17",
          "gCodeFooter":"G1 Z 5;M18",
          "gCodePreslice":null,
-         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\n G1 Z-${(ZLiftDist)} F180;\n G1 Z${(LayerThickness)} F180;\n M18; ",
+         "gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\n G1 Z-${(ZLiftDist)} F180;\n M18;\n G1 Z${(LayerThickness)} F180; ",
          "gCodeShutter":null,
          "zliftDistanceGCode":"M650 D${ZLiftDist} S${ZLiftRate}",
          "zliftSpeedGCode":"M650 D${ZLiftDist} S${ZLiftRate}",
