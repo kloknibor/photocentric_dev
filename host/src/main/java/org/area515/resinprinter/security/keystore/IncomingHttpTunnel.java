@@ -1,5 +1,6 @@
 package org.area515.resinprinter.security.keystore;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.nio.ByteBuffer;
@@ -24,11 +25,19 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.naming.InvalidNameException;
 
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpException;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.impl.conn.DefaultHttpResponseParser;
+import org.apache.http.impl.io.DefaultHttpRequestParser;
+import org.apache.http.impl.io.DefaultHttpRequestWriter;
+import org.apache.http.message.BasicHttpEntityEnclosingRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.area515.resinprinter.security.Friend;
 import org.area515.resinprinter.security.UserManagementException;
-import org.area515.resinprinter.security.keystore.RendezvousServer.UserConnection;
+import org.area515.resinprinter.security.keystore.RendezvousClient.UserConnection;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
@@ -44,14 +53,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @WebSocket()
 public class IncomingHttpTunnel {
     private static final Logger logger = LogManager.getLogger();
-
-    private TimeUnit timeoutUnit = TimeUnit.MINUTES;
-    private int timeoutValue = 2;
+    
 	private Session session;
-	private RendezvousServer server;
-	private static Map<Long, ResponseWaiter> waiters = new ConcurrentHashMap<>();
+	private RendezvousClient server;
+	//TODO: Unfortunately this isn't a good idea, we can't use this single socket asynchronously as it will eventually cause: Blocking message pending 10000 for BLOCKING
+	private Map<Long, ResponseWaiter> waiters = new ConcurrentHashMap<>();
 	
-	private class ResponseWaiter {
+	public class ResponseWaiter {
 		private CountDownLatch latch = new CountDownLatch(1);
 		private int offset;
 		private int length;
@@ -60,8 +68,8 @@ public class IncomingHttpTunnel {
 		private ResponseWaiter() {
 		}
 		
-		public CountDownLatch getLatch() {
-			return latch;
+		public boolean await(long timeout, TimeUnit unit) throws InterruptedException {
+			return latch.await(timeout, unit);
 		}
 		
 		public void setResponse(byte[] content, int offset, int length) {
@@ -70,9 +78,17 @@ public class IncomingHttpTunnel {
 			this.length = length;
 			latch.countDown();
 		}
+		
+		public HttpResponse buildResponse() throws HttpException, IOException {
+			ByteSessionInputBuffer buffer = new ByteSessionInputBuffer(content, offset, length);
+			DefaultHttpResponseParser parser = new DefaultHttpResponseParser(buffer);
+			HttpResponse response = parser.parse();
+			response.setEntity(buffer.getRemainingEntity());
+			return response;
+		}
 	}
 	
-	public IncomingHttpTunnel(RendezvousServer server, URI rendezvousServerWebSocketAddress) throws Exception {
+	public IncomingHttpTunnel(RendezvousClient server, URI rendezvousServerWebSocketAddress) throws Exception {
 		this.server = server;
         WebSocketClient client = new WebSocketClient();
         client.start();
@@ -87,38 +103,47 @@ public class IncomingHttpTunnel {
 		session.getRemote().sendBytes(ByteBuffer.wrap(mapper.writeValueAsBytes(message)));
 		//TODO: Someday we should wait for an accept friend response from the remote.
     }
-    
-    public UserConnection buildConnection(UUID first, UUID second) throws UserManagementException, JsonProcessingException, IOException, CertificateExpiredException, CertificateNotYetValidException, InvalidKeyException, InvalidNameException, NoSuchAlgorithmException, SignatureException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
+     
+    public void sendKeyExchange(PhotonicCrypto crypto) throws CertificateExpiredException, CertificateNotYetValidException, InvalidKeyException, InvalidNameException, NoSuchAlgorithmException, SignatureException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, JsonProcessingException, IOException {
 		ObjectMapper mapper = new ObjectMapper(new JsonFactory());
-		UserConnection connection = server.getConnection(first, second);
-		if (connection == null) {
-			connection = server.createOutgoingConnection(first, second);
-	    	Message message = connection.getCrypto().buildKeyExchange();
-	    	session.getRemote().sendBytes(ByteBuffer.wrap(mapper.writeValueAsBytes(message)));
-			//TODO: Someday we should wait for a key receipt message
-		}
-		
-		return connection;
+    	Message message = crypto.buildKeyExchange();
+    	session.getRemote().sendBytes(ByteBuffer.wrap(mapper.writeValueAsBytes(message)));
+		//TODO: Someday we should wait for a key receipt message
     }
     
-    public ResponseWaiter sendMessage(UUID fromLocal, UUID toRemote, String url, byte[] body) throws InvalidKeyException, InvalidNameException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, JsonProcessingException, IOException, InterruptedException, TimeoutException, UserManagementException, CertificateExpiredException, CertificateNotYetValidException, NoSuchAlgorithmException, SignatureException, NoSuchPaddingException {
+    public ResponseWaiter sendMessage(UUID fromLocal, UUID toRemote, HttpRequest request, long timeoutValue, TimeUnit timeoutUnit) throws InvalidKeyException, HttpException, InvalidNameException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException, JsonProcessingException, IOException, InterruptedException, TimeoutException, UserManagementException, CertificateExpiredException, CertificateNotYetValidException, NoSuchAlgorithmException, SignatureException, NoSuchPaddingException {
 		ObjectMapper mapper = new ObjectMapper(new JsonFactory());
-    	UserConnection connection = buildConnection(fromLocal, toRemote);
+    	UserConnection connection = server.buildConnection(fromLocal, toRemote, false);
+    	PhotonicCrypto crypto = connection.getCrypto();
+    	if (crypto.isDueForKeyExchange()) {
+    		sendKeyExchange(connection.getCrypto());
+    	}
+
     	Long requestNumber = new Random().nextLong();
 		String requestNumberString = requestNumber + "\n";
 		
-		url += "\n";
-		ByteBuffer buffer = ByteBuffer.allocate(requestNumberString.length() + url.length() + body.length);
+		ByteSessionOutputBuffer sessionBuffer = new ByteSessionOutputBuffer();
+		DefaultHttpRequestWriter writer = new DefaultHttpRequestWriter(sessionBuffer);
+		writer.write(request);
+		
+		ByteArrayOutputStream entityOutput = null;
+		if (request instanceof HttpEntityEnclosingRequest) {
+			entityOutput = new ByteArrayOutputStream();
+			((HttpEntityEnclosingRequest)request).getEntity().writeTo(entityOutput);
+		}
+		
+		byte[] requestBytes = sessionBuffer.getByteArray();
+		ByteBuffer buffer = ByteBuffer.allocate(requestNumberString.length() + sessionBuffer.getLength() + (entityOutput == null?0:entityOutput.toByteArray().length));
 		buffer.put(requestNumberString.getBytes());
-		buffer.put(url.getBytes());
+		buffer.put(requestBytes, 0, sessionBuffer.getLength());
+		if (entityOutput != null) {
+			buffer.put(entityOutput.toByteArray());
+		}
+		
 		Message outMessage = connection.getCrypto().buildEncryptedMessage(buffer);
 		session.getRemote().sendBytes(ByteBuffer.wrap(mapper.writeValueAsBytes(outMessage)));
 		ResponseWaiter waiter = new ResponseWaiter();
 		waiters.put(requestNumber, waiter);
-		if (waiter.getLatch().await(timeoutValue, timeoutUnit)) {
-			throw new TimeoutException("Timed out waiting for answer");
-		}
-		
 		return waiter;
     }
     	
@@ -134,7 +159,7 @@ public class IncomingHttpTunnel {
     }
     
     @OnWebSocketMessage
-    public void onMessage(byte buf[]) {
+    public void onMessage(byte buf[], int offset, int length) {
 		ObjectMapper mapper = new ObjectMapper(new JsonFactory());
 		Message inMessage;
 		try {
@@ -144,35 +169,33 @@ public class IncomingHttpTunnel {
 			server.unauthenticatedMessage(null);
 			return;
 		}
+		
+		logger.info("Message received from:{} to {}", inMessage.getFrom(), inMessage.getTo());
+		//first check if this is a trust request!
+		Friend newPotentialFriend = null;
+		try {
+			newPotentialFriend = PhotonicCrypto.checkCertificateTrustExchange(inMessage);
+			if (newPotentialFriend != null) {
+				logger.info("Message was friend request from:{} to {}", inMessage.getFrom(), inMessage.getTo());
+				server.addToFriendRequestList(newPotentialFriend);
+				//TODO: We don't have a "remote accepted friend request protocol"
+				return;
+			}
+		} catch (InvalidNameException | CertificateException | RuntimeException e) {
+			logger.error(e);
+			server.unauthenticatedMessage(inMessage);
+			return;
+		}
 
-    	//UserConnection connection = getConnection(inMessage.getFrom(), inMessage.getTo());//Don't call this because we need to login if a connection doesn't already exist.
-    	UserConnection connection = server.getConnection(inMessage.getFrom(), inMessage.getTo());
-		if (connection == null) {
-			
-			//first check if this is a trust request!
-			Friend newPotentialFriend = null;
-			try {
-				newPotentialFriend = PhotonicCrypto.checkCertificateTrustExchange(inMessage);
-				if (newPotentialFriend != null) {
-					server.addToFriendRequestList(newPotentialFriend);
-					return;
-				}
-			} catch (InvalidNameException | CertificateException e) {
-				logger.error(e);
-				server.unauthenticatedMessage(inMessage);
-				return;
-			}
-			
-			//If not a trust request, we need to attempt a login first
-			try {
-				connection = server.attemptLogin(inMessage.getFrom(), inMessage.getTo());
-			} catch (UserManagementException e) {
-				logger.error(e);
-				server.unauthenticatedMessage(inMessage);
-				return;
-			}
-			
-			//TODO: We don't have a "remote accepted friend request protocol"
+    	UserConnection connection;
+		try {
+			connection = server.buildConnection(inMessage.getTo(), inMessage.getFrom(), false);
+		} catch (CertificateExpiredException | CertificateNotYetValidException | InvalidKeyException
+				| InvalidNameException | NoSuchAlgorithmException | SignatureException | NoSuchPaddingException
+				| IllegalBlockSizeException | BadPaddingException | UserManagementException | IOException e) {
+			logger.error(e);
+			server.unauthenticatedMessage(inMessage);
+			return;
 		}
 
 		//Next check to see if the remote is sending us a key exchange message
@@ -180,7 +203,7 @@ public class IncomingHttpTunnel {
 		try {
 			content = connection.getCrypto().getData(inMessage);
 			if (content == null) {
-				logger.info("AES key exchange occurred between:" + inMessage.getFrom() + " and:" + inMessage.getTo());
+				logger.info("Message was AES key exchange from:{} to:{}", inMessage.getFrom(), inMessage.getTo());
 				//TODO: We should send a key receipt message after this.
 				return;
 			}
@@ -192,39 +215,63 @@ public class IncomingHttpTunnel {
 			return;
 		}
 		
-		//I don't think we have to call validate on Identity, because http execution will do it for us.
-		String relativeURL = null;		
+		//I don't think we have to call validate on Identity, because http execution will do it for us.=
 		int start = 0;
-		int lastStart = 0;
-		String requestOrResponse = null;
-		for (start = 0; start < content.length; start++) {
-			if (content[start] == 10) {
-				if (requestOrResponse == null) {
-					requestOrResponse = new String(content, 0, start);
-					
-					//Check to see if this was a response first
-					ResponseWaiter waiter = waiters.remove(Long.parseLong(requestOrResponse));
-					if (waiter != null) {
-						waiter.setResponse(content, start, content.length - start);
-						waiter.getLatch().countDown();
-						return;
-					}
+		for (; content[start] != 10 && start < content.length && start < 21; start++) {
+		}
+		
+		Long requestOrResponse = null;
+		try {
+			requestOrResponse = Long.parseLong(new String(content, 0, start).trim());
+		} catch (NumberFormatException e) {
+			logger.error(e);
+			server.unauthenticatedMessage(inMessage);
+			return;
+		}
+		
+		//Check to see if this was a response first
+		ResponseWaiter waiter = waiters.remove(requestOrResponse);
+		if (waiter != null) {
+			waiter.setResponse(content, start + 1, content.length - start - 1);
+			logger.info("Message was response from:{} to:{}", inMessage.getFrom(), inMessage.getTo());
+			return;
+		}
 
-					lastStart = start;
-				} else if (relativeURL == null) {
-					relativeURL = new String(content, lastStart + 1, start);
-					break;
-				}
-			}
+		logger.info("Message was request from:{} to:{}", inMessage.getTo(), inMessage.getFrom());
+		try {
+			connection = server.buildConnection(inMessage.getTo(), inMessage.getFrom(), true);
+		} catch (CertificateExpiredException | CertificateNotYetValidException | InvalidKeyException
+				| InvalidNameException | NoSuchAlgorithmException | SignatureException | NoSuchPaddingException
+				| IllegalBlockSizeException | BadPaddingException | UserManagementException | IOException e) {
+			logger.error(e);
+			server.unauthenticatedMessage(inMessage);
+			return;
+		}
+
+		//This message must be an http request
+		ByteSessionInputBuffer sessionBuffer = new ByteSessionInputBuffer(content, start + 1, content.length - start - 1);
+		DefaultHttpRequestParser parser = new DefaultHttpRequestParser(sessionBuffer);
+		HttpRequest request;
+		try {
+			request = (HttpRequest)parser.parse();
+		} catch (IOException | HttpException e) {
+			logger.error(e);
+			server.unauthenticatedMessage(inMessage);
+			return;
+		}
+		//HttpUriRequest request = parseRequestLine(requestLine);
+		//request.setHeaders(headers.toArray(new Header[headers.size()]));
+		if (request instanceof BasicHttpEntityEnclosingRequest) {
+			((BasicHttpEntityEnclosingRequest)request).setEntity(sessionBuffer.getRemainingEntity());
 		}
 		
 		//Add 1 to start in order to get past the \n
 		start++;
-		requestOrResponse += "\n";
+		String responseString = requestOrResponse + "\n";
 		try {
-			byte[] response = server.executeProxiedRequestFromRemote(connection, relativeURL, start == content.length?null:content, start, content.length - start);
-			ByteBuffer buffer = ByteBuffer.allocate(requestOrResponse.length() + response.length);
-			buffer.put(requestOrResponse.getBytes());
+			byte[] response = server.executeProxiedRequestFromRemote(connection, request);
+			ByteBuffer buffer = ByteBuffer.allocate(responseString.length() + response.length);
+			buffer.put(responseString.getBytes());
 			buffer.put(response);
 			Message outMessage = connection.getCrypto().buildEncryptedMessage(buffer);
 			session.getRemote().sendBytes(ByteBuffer.wrap(mapper.writeValueAsBytes(outMessage)));

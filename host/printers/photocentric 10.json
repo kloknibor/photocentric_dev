@@ -36,7 +36,8 @@
             "MonitorRight":11.36,
             "MonitorBottom":12.64,
             "UseMask":false
-         }
+         },
+         "PauseOnPrinterResponseRegEx": ".*door.*open.*"
       },
       "slicingProfile":{  
          "gCodeHeader":"G91;\nM17;",
@@ -96,5 +97,8 @@
    "status":"Ready",
    "printInProgress":false,
    "printPaused":false,
+<<<<<<< HEAD
    "PauseOnPrinterResponseRegEx":".*door.*open.*"
+=======
+>>>>>>> refs/remotes/origin/master
 }

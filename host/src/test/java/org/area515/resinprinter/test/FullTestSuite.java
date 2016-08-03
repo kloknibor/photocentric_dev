@@ -2,6 +2,7 @@ package org.area515.resinprinter.test;
 
 import org.area515.resinprinter.gcode.FirmwareResponseSimulation;
 import org.area515.resinprinter.gcode.TestGCodeTemplating;
+import org.area515.resinprinter.http.TestByteSession;
 import org.area515.resinprinter.image.ConvertCWMaskToTransparencyMask;
 import org.area515.resinprinter.inkdetection.visual.CircleTest;
 import org.area515.resinprinter.inkdetection.visual.LineTest;
@@ -11,8 +12,8 @@ import org.area515.resinprinter.network.LinuxNetworkManagerTest;
 import org.area515.resinprinter.printer.DetectFirmwareMock;
 import org.area515.resinprinter.projector.HexCodeBasedProjectorTesting;
 import org.area515.resinprinter.security.KeystoreSecurityTest;
-import org.area515.resinprinter.security.RendezvousExchange;
 import org.area515.resinprinter.security.SerializeMessageAsJson;
+import org.area515.resinprinter.security.keystore.RendezvousExchange;
 import org.area515.resinprinter.services.TestScriptAndTemplating;
 import org.area515.resinprinter.slice.CheckSlicePoints;
 import org.area515.resinprinter.stl.ZSlicingGeometry;
@@ -39,6 +40,7 @@ import org.junit.runners.Suite;
 	SerializeMessageAsJson.class,
 	RendezvousExchange.class,
 	TestGCodeTemplating.class,
+	TestByteSession.class,
 })
 
 public class FullTestSuite {

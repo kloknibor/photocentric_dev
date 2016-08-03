@@ -9,6 +9,12 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.Provider;
+import java.security.Provider.Service;
+import java.security.SecureRandom;
+import java.security.Security;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -50,6 +56,7 @@ import org.area515.resinprinter.printer.SlicingProfile;
 import org.area515.resinprinter.projector.HexCodeBasedProjector;
 import org.area515.resinprinter.projector.ProjectorModel;
 import org.area515.resinprinter.security.PhotonicUser;
+import org.area515.resinprinter.security.SHA1PRNG;
 import org.area515.resinprinter.security.UserManagementException;
 import org.area515.resinprinter.security.keystore.KeystoreLoginService;
 import org.area515.resinprinter.serial.RXTXSynchronousReadBasedCommPort;
@@ -95,7 +102,8 @@ public class HostProperties {
 	private CountDownLatch hostReady = new CountDownLatch(1);
 	private String scriptEngineLanguage = null;
 	private String printerProfileRepo;
-	
+	private boolean useAuthentication;
+
 	//SSL settings:
 	private boolean useSSL;
 	private int printerHostPort;
@@ -113,13 +121,14 @@ public class HostProperties {
 	private String[] imagingCommand;
 	private String[] dumpStackTraceCommand;
 	private String[] rebootCommand;
-		
+
+	
 	public synchronized static HostProperties Instance() {
 		if (INSTANCE == null) {
 			INSTANCE = new HostProperties();
-			
+
 			//Put any calls here if they require an initialized HostProperties();
-			if (INSTANCE.useSSL) {
+			if (INSTANCE.isUseAuthentication()) {
 				//We do this to make sure that people can still login after our keystore migration
 				INSTANCE.migratePropertyUserUserManagementFeature(INSTANCE.getMergedProperties(), INSTANCE.securityRealmName);
 			}
@@ -144,7 +153,7 @@ public class HostProperties {
 		if (clientUsername != null) {
 			if (clientPassword != null) {
 				try {
-					PhotonicUser newUser = new PhotonicUser(clientUsername, clientPassword, null, null, new String[] {PhotonicUser.FULL_RIGHTS});
+					PhotonicUser newUser = new PhotonicUser(clientUsername, clientPassword, null, null, new String[] {PhotonicUser.FULL_RIGHTS}, false);
 					UserService.INSTANCE.createNewUser(newUser);
 					removeProperties(securityRealmName + ".clientUsername", securityRealmName + ".clientPassword");
 				} catch (UserManagementException e) {
@@ -266,6 +275,7 @@ public class HostProperties {
 		if (System.getProperty("overrideHostPort") != null) {
 			printerHostPort = Integer.parseInt(System.getProperty("overrideHostPort"));
 		}
+		useAuthentication = new Boolean(configurationProperties.getProperty("useAuthentication", "false"));
 		externallyAccessableName = configurationProperties.getProperty("externallyAccessableName");
 		sslKeypairPassword = configurationProperties.getProperty("keypairPassword");
 		sslKeystorePassword = configurationProperties.getProperty("keystorePassword");
@@ -493,6 +503,10 @@ public class HostProperties {
 	
 	public boolean isUseSSL() {
 		return useSSL;
+	}
+	
+	public boolean isUseAuthentication() {
+		return useAuthentication;
 	}
 
 	public String getForwardHeader() {

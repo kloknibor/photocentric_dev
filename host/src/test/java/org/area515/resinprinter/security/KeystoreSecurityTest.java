@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.ByteBuffer;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.cert.CertificateEncodingException;
 import java.util.Arrays;
 import java.util.Base64;
 
@@ -32,6 +33,17 @@ public class KeystoreSecurityTest {
 	private static PhotonicUser user1;
 	private static PhotonicUser user2;
 	
+	public static Friend buildFriend(PhotonicUser user, PhotonicCrypto crypto) throws CertificateEncodingException {
+		Friend user1sFriendIsUser2 = new Friend();
+		user1sFriendIsUser2.setUser(user);
+		user1sFriendIsUser2.setTrustData(new String[]{
+				Base64.getEncoder().encodeToString(crypto.getCertificates()[0].getEncoded()),
+				Base64.getEncoder().encodeToString(crypto.getCertificates()[1].getEncoded())
+			});
+		
+		return user1sFriendIsUser2;
+	}
+	
 	@BeforeClass
 	public static void setupCryptos() throws Exception {
 		NotificationManager.start(null, Mockito.mock(ServerContainer.class));
@@ -49,28 +61,18 @@ public class KeystoreSecurityTest {
 		service1 = new KeystoreLoginService(user1Keystore, password, false);
 		service2 = new KeystoreLoginService(user2Keystore, password, false);
 		
-		PhotonicUser insertUser1 = new PhotonicUser(username1, password, null, username1 + "@stuff.com", new String[]{PhotonicUser.FULL_RIGHTS});
-		PhotonicUser insertUser2 = new PhotonicUser(username2, password, null, username2 + "@stuff.com", new String[]{PhotonicUser.FULL_RIGHTS});
+		PhotonicUser insertUser1 = new PhotonicUser(username1, password, null, username1 + "@stuff.com", new String[]{PhotonicUser.FULL_RIGHTS}, false);
+		PhotonicUser insertUser2 = new PhotonicUser(username2, password, null, username2 + "@stuff.com", new String[]{PhotonicUser.FULL_RIGHTS}, false);
 		
 		user1 = service1.update(insertUser1);
 		user2 = service2.update(insertUser2);
 		
 		crypto1 = KeystoreUtilities.getPhotonicCrypto(user1, user1Keystore, password, password, false);
 		crypto2 = KeystoreUtilities.getPhotonicCrypto(user2, user2Keystore, password, password, false);
+
+		Friend user1sFriendIsUser2 = buildFriend(user2, crypto2);
+		Friend user2sFriendIsUser1 = buildFriend(user1, crypto1);
 		
-		Friend user1sFriendIsUser2 = new Friend();
-		user1sFriendIsUser2.setUser(user2);
-		user1sFriendIsUser2.setTrustData(new String[]{
-				Base64.getEncoder().encodeToString(crypto2.getCertificates()[0].getEncoded()),
-				Base64.getEncoder().encodeToString(crypto2.getCertificates()[1].getEncoded())
-			});
-		
-		Friend user2sFriendIsUser1 = new Friend();
-		user2sFriendIsUser1.setUser(user1);
-		user2sFriendIsUser1.setTrustData(new String[]{
-				Base64.getEncoder().encodeToString(crypto1.getCertificates()[0].getEncoded()),
-				Base64.getEncoder().encodeToString(crypto1.getCertificates()[1].getEncoded())
-			});
 		service1.trustNewFriend(user1sFriendIsUser2);
 		service2.trustNewFriend(user2sFriendIsUser1);
 		
@@ -99,7 +101,7 @@ public class KeystoreSecurityTest {
 		
 		service1.start(null);
 		Assert.assertNull(service1.login(testUsername, testUsername, null));
-		PhotonicUser insertUser = new PhotonicUser(testUsername, testUsername, null, testUsername, new String[]{PhotonicUser.FULL_RIGHTS});
+		PhotonicUser insertUser = new PhotonicUser(testUsername, testUsername, null, testUsername, new String[]{PhotonicUser.FULL_RIGHTS}, false);
 		PhotonicUser user = service1.update(insertUser);
 		Assert.assertNotNull(user);
 		Assert.assertEquals(user.getName(), testUsername);
