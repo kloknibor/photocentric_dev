@@ -79,7 +79,7 @@
                "Name":"Default",
                "SliceHeight":0.1,
                "LayerTime":26000,
-               "FirstLayerTime":14000,
+               "FirstLayerTime":140000,
                "NumberofBottomLayers":4,
                "ResinPriceL":65.0
             }
