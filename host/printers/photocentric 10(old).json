@@ -97,8 +97,3 @@
    "status":"Ready",
    "printInProgress":false,
    "printPaused":false,
-<<<<<<< HEAD
-   "PauseOnPrinterResponseRegEx":".*door.*open.*"
-=======
->>>>>>> refs/remotes/origin/master
-}
