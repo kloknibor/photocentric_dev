@@ -78,8 +78,8 @@
                "PercentageOfPrintMaterialConsideredEmpty":10.0,
                "Name":"Default",
                "SliceHeight":0.1,
-               "LayerTime":26000,
-               "FirstLayerTime":140000,
+               "LayerTime":10000,
+               "FirstLayerTime":10000,
                "NumberofBottomLayers":4,
                "ResinPriceL":65.0
             }
