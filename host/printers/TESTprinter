@@ -1,0 +1,116 @@
+[{
+	"configuration":{
+		"name":"Photocentric LC 10",
+		"machineConfig":{
+		"name":"CWH Template Printer",
+		"FileVersion":0,
+		"PlatformXSize":134.0,
+		"PlatformYSize":75.0,
+		"PlatformZSize":185.0,
+		"MaxXFeedRate":0,
+		"MaxYFeedRate":0,
+		"MaxZFeedRate":0,
+		"XRenderSize":1920,
+		"YRenderSize":1080,
+		"MotorsDriverConfig":{
+			"DriverType":"eGENERIC",
+			"ComPortSettings":{
+				"PortName":"Autodetect 3d printer firmware",
+				"Speed":115200,
+				"Databits":8,
+				"Parity":"None",
+				"Stopbits":"One",
+				"Handshake":"None"
+			}
+		},
+		"MonitorDriverConfig":{
+			"DLP_X_Res":1920.0,
+			"DLP_Y_Res":1080.0,
+			"OSMonitorID":":0.0",
+			"DisplayCommEnabled":false,
+			"ComPortSettings":{
+				"Speed":9600,
+				"Databits":8,
+				"Parity":"None",
+				"Stopbits":"One",
+				"Handshake":"None"
+			},
+			"MonitorTop":0,
+			"MonitorLeft":0,
+			"MonitorRight":0,
+			"MonitorBottom":0,
+			"UseMask":false
+		},
+		"PauseOnPrinterResponseRegEx":".*door.*open.*"
+	},
+	"slicingProfile":{
+		"gCodeHeader":"G91;\nM17;",
+		"gCodeFooter":"M18 ;",
+		"gCodePreslice":null,
+		"gCodeLift":"G1 Z${ZLiftDist} F${ZLiftRate};\nG1 Z-${(ZLiftDist - LayerThickness)} F180;\nM17;\n;<delay> 1500;",
+		"gCodeShutter":null,
+		"name":"CWH Template Printer",
+		"zliftDistanceGCode":"",
+		"zliftSpeedGCode":"",
+		"selectedInkConfigIndex":0,
+		"DotsPermmX":14.328358208955224,
+		"DotsPermmY":14.4,
+		"XResolution":1920,
+		"YResolution":1080,
+		"BlankTime":0,
+		"PlatformTemp":0,
+		"ExportSVG":0,
+		"Export":false,
+		"ExportPNG":false,
+		"Direction":"Bottom_Up",
+		"LiftDistance":5.0,
+		"SlideTiltValue":0,
+		"AntiAliasing":false,
+		"UseMainLiftGCode":false,
+		"AntiAliasingValue":0.0,
+		"LiftFeedRate":50.0,
+		"LiftRetractRate":0.0,
+		"FlipX":false,"FlipY":true,
+		"ZLiftDistanceCalculator":"var minLift = 4.5;\nvar value = 8.0;\nif ($CURSLICE > $NumFirstLayers) {\nvalue = minLift  +  0.0015*Math.pow($buildAreaMM,1);\n}\nvalue",
+		"ZLiftSpeedCalculator":"var value = 50.0;\nif ($CURSLICE > $NumFirstLayers) {\nvalue = 100.0 - 0.02 * Math.pow($buildAreaMM,1);\n}\nvalue",
+		"ProjectorGradientCalculator":"",
+		"ExposureTimeCalculator":"var value = $FirstLayerTime;\nif ($CURSLICE > $NumFirstLayers) {\n\tvalue = $LayerTime\n}\nvalue",
+		"SelectedInk":"Default",
+		"MinTestExposure":0,
+		"TestExposureStep":0,
+		"InkConfig":[
+			{
+				"PercentageOfPrintMaterialConsideredEmpty":10.0,
+				"Name":"Default",
+				"SliceHeight":0.1,
+				"LayerTime":8000,
+				"FirstLayerTime":20000,
+				"NumberofBottomLayers":10,
+				"ResinPriceL":65.0
+			}		
+		],
+		"TwoDimensionalSettings":{
+			"Font":{
+				"Name":"Dialog",
+				"Size":200
+			},
+			"PlatformHeightMM":1.5,
+			"ExtrusionHeightMM":1.5,
+			"PlatformCalculator":"platformGraphics.fillRoundRect(centerX - (extrusionX / 2), centerY - (extrusionY / 2), 
+			extrusionX, extrusionY, 50, 50);"
+		}
+	},
+	"MachineConfigurationName":"CWH Template Printer",
+	"SlicingProfileName":"CWH Template Printer",
+	"AutoStart":false,
+	"Calibrated":false
+},
+	"started":false,
+	"shutterOpen":false,
+	"displayDeviceID":null
+	,"currentSlicePauseTime":0,"
+	status":"Ready",
+	"cachedBulbHours":null,
+	"printInProgress":false,
+	"printPaused":false
+}
