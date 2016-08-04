@@ -36,7 +36,7 @@
             "MonitorRight":11.36,
             "MonitorBottom":12.64,
             "UseMask":false
-         }
+         },
          "PauseOnPrinterResponseRegEx":".*door.*open.*"
       },
       "slicingProfile":{  
