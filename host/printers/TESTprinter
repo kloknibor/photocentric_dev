@@ -37,6 +37,7 @@
             "MonitorBottom":12.64,
             "UseMask":false
          }
+         "PauseOnPrinterResponseRegEx":".*door.*open.*"
       },
       "slicingProfile":{  
          "gCodeHeader":"G91;M17",
