@@ -2,7 +2,15 @@
 
 cpu=`uname -m`
 
+<<<<<<< HEAD
 DEFAULT_REPO="kloknibor/photocentric_dev"
+=======
+if [ -z "$HOME" ] || [ "$HOME" == "/" ]; then
+  HOME=~root
+fi
+
+DEFAULT_REPO="area515/Creation-Workshop-Host"
+>>>>>>> refs/remotes/origin/master
 CONFIG_PROPS="${HOME}/3dPrinters/config.properties"
 
 if [ -f ${CONFIG_PROPS} ]; then
